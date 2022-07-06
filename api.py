@@ -48,7 +48,7 @@ class AddEmployee (Resource):
             lastname=request.json['lastname'],
             gender=request.json['gender'],
             salary=request.json['salary'])
-            db.session.add()
+            db.session.add(emp)
             db.session.commit()
             #return json response
             return make_response(jsonify({
@@ -87,13 +87,13 @@ class DeleteEmployee (Resource):
         db.session.commit()
         return f'{id} is deleted', 200
 
-api.add(getEmployee, '/')
-api.add(AddEmployee, '/add')
-api.add(UpdateEmployee, '/update/<int:id>')
-api.add(DeleteEmployee, '/delete/<int:id>')
+api.add_resource(getEmployee, '/')
+api.add_resource(AddEmployee, '/add')
+api.add_resource(UpdateEmployee, '/update/<int:id>')
+api.add_resource(DeleteEmployee, '/delete/<int:id>')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
 
 
 
