@@ -9,6 +9,12 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 #create API object
 api = Api(app)
+
+DATA = {
+    'users': [
+        
+    ]
+}
 #create database object
 app.config ['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///thu.db'
 app.config ['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -96,6 +102,8 @@ if __name__ == '__main__':
     app.run(debug=True, port=5001)
 
 
-
+#cai them flask swagger
+#restless vs restful
+#standardization openapi
 
 
