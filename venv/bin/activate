@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/alicastic/api flask/apiflask-1/venv"
+VIRTUAL_ENV="/Users/alicastic/Desktop/apiflask/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

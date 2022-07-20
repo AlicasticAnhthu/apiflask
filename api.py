@@ -5,6 +5,12 @@ from flask import Flask, request, jsonify, make_response
 from flask_restful import Resource, Api
 from flask_sqlalchemy import SQLAlchemy
 
+from jinja2 import Environment, PackageLoader, select_autoescape
+env = Environment(
+    loader=PackageLoader("yourapp"),
+    autoescape=select_autoescape()
+)
+
 #create instance of flask
 app = Flask(__name__)
 #create API object

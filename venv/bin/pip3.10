@@ -1,6 +1,4 @@
-#!/bin/sh
-'''exec' "/Users/alicastic/api flask/apiflask-1/venv/bin/python3" "$0" "$@"
-' '''
+#!/Users/alicastic/Desktop/apiflask/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
