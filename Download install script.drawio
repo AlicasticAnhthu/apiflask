@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-07-21T06:13:51.059Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.3 Safari/605.1.15" etag="bAbP6VQq-SXyWAy3q47g" version="20.1.1" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2022-07-21T06:25:12.475Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.3 Safari/605.1.15" etag="wHlYATHR7rQdCVFE4TnT" version="20.1.1" type="github" pages="4">
   <diagram id="ONlVN_mibPTLU32uY-dU" name="API generate link">
     <mxGraphModel dx="1113" dy="759" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -267,7 +267,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="MQy6rTMh7t-QHSIdxeik" name="API download file">
-    <mxGraphModel dx="1113" dy="759" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1200" dy="790" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -277,11 +277,19 @@
         <mxCell id="mqaDWEVYDW_zxYhopPrq-2" value="Flask" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
           <mxGeometry x="280" y="90" width="100" height="590" as="geometry" />
         </mxCell>
+        <mxCell id="BfjVn0eJYbf5JLBvwG0J-1" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="mqaDWEVYDW_zxYhopPrq-2">
+          <mxGeometry x="50" y="280" width="10" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="BfjVn0eJYbf5JLBvwG0J-2" value="trigger download&amp;nbsp;" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;entryX=1;entryY=0;" edge="1" target="BfjVn0eJYbf5JLBvwG0J-1" parent="mqaDWEVYDW_zxYhopPrq-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="55" y="240" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="75" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
         <mxCell id="mqaDWEVYDW_zxYhopPrq-3" value="Template manager" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
           <mxGeometry x="465" y="90" width="100" height="590" as="geometry" />
-        </mxCell>
-        <mxCell id="BSHtMvzOoTIuTXvt1P7u-1" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="mqaDWEVYDW_zxYhopPrq-3">
-          <mxGeometry x="45" y="150" width="10" height="80" as="geometry" />
         </mxCell>
         <mxCell id="mqaDWEVYDW_zxYhopPrq-4" value="Datasource manager" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
           <mxGeometry x="830" y="90" width="100" height="590" as="geometry" />
@@ -291,6 +299,9 @@
         </mxCell>
         <mxCell id="mqaDWEVYDW_zxYhopPrq-8" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="mqaDWEVYDW_zxYhopPrq-5">
           <mxGeometry x="45" y="70" width="10" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="BSHtMvzOoTIuTXvt1P7u-1" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="mqaDWEVYDW_zxYhopPrq-5">
+          <mxGeometry x="45" y="150" width="10" height="80" as="geometry" />
         </mxCell>
         <mxCell id="mqaDWEVYDW_zxYhopPrq-6" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="1">
           <mxGeometry x="160" y="150" width="10" height="530" as="geometry" />
@@ -320,7 +331,7 @@
         <mxCell id="mqaDWEVYDW_zxYhopPrq-12" value="API download file" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="190" y="140" width="120" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BSHtMvzOoTIuTXvt1P7u-2" value="get file" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;rounded=0;" edge="1" target="BSHtMvzOoTIuTXvt1P7u-1" parent="1" source="mqaDWEVYDW_zxYhopPrq-2">
+        <mxCell id="BSHtMvzOoTIuTXvt1P7u-2" value="get download link" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;rounded=0;" edge="1" target="BSHtMvzOoTIuTXvt1P7u-1" parent="1" source="mqaDWEVYDW_zxYhopPrq-2">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="440" y="230" as="sourcePoint" />
           </mxGeometry>
@@ -330,10 +341,10 @@
             <mxPoint x="440" y="306" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="BSHtMvzOoTIuTXvt1P7u-4" value="download triggered" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;" edge="1" parent="1" source="mqaDWEVYDW_zxYhopPrq-2" target="mqaDWEVYDW_zxYhopPrq-6">
+        <mxCell id="BSHtMvzOoTIuTXvt1P7u-4" value="return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="280" y="370" as="sourcePoint" />
-            <mxPoint x="200" y="370" as="targetPoint" />
+            <mxPoint x="329.5" y="392" as="sourcePoint" />
+            <mxPoint x="170" y="392" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
