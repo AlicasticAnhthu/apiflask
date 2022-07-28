@@ -6,7 +6,7 @@ from cgitb import enable
 from pickle import TRUE
 import resource
 from unicodedata import name
-from flask import Flask, request, jsonify, make_response
+from flask import Flask, request, jsonify, make_response, send_file, render_template
 from flask_restful import Resource, Api
 from flask_sqlalchemy import SQLAlchemy
 import psycopg2
@@ -75,10 +75,10 @@ class TokenManager:
 #         pass
 
 
-# class TemplateManager:
+class TemplateManager:
 
-#     def render(self):
-#         pass
+    def render(self):
+        pass
 
 
 class CoreManager:
@@ -88,7 +88,7 @@ class CoreManager:
         current_time = str(int(time.time()))
         token = hmac.new(secret.encode('utf-8'), digestmod=hashlib.sha256).hexdigest()
         return "get_file?file=%(filename)s&time=%(current_time)s&token=%(token)s" % {
-            "filename": self.filename,
+            "filename": "thu.db",
             "current_time": current_time,
             "token": token
         }
@@ -96,4 +96,5 @@ class CoreManager:
 if __name__ == '__main__':
     link = CoreManager().render_link()
     print(link)
+    send_file("/thu.db", as_attachment=True) 
     app.run(debug=True, port=5001)
