@@ -16,14 +16,17 @@ class TokenManager(Base):
     id = Column(Integer(), primary_key=True, autoincrement=True)
     token = Column(String(100), nullable=False)
     local_path = Column(String(100), nullable=False)
-    node_exporter_id = Column(Integer(), ForeignKey('node_exporters.id'), nullable=False)
+    exporter_id = Column(Integer(), ForeignKey('exporters.id'), nullable=False)
     token_status = Column(Integer(), unique=False, default=False )
     created_date = Column(DateTime(timezone=True), default=datetime.datetime.now(tz=pytz.timezone(TIMEZONE)))
 
-class NodeExporter(Base):
-    __tablename__ = 'node_exporters'
+class ExporterManager(Base):
+    __tablename__ = 'exporters'
 
     id = Column(Integer(), primary_key=True, autoincrement=True)
+    name = Column(String(100), nullable=False)
+    secret = Column(String(100), nullable=False)
+    target_url = Column(String(100), nullable=False)
     enable = Column(Integer(), default=0)
     created_date = Column(DateTime(timezone=True), default=datetime.datetime.now(tz=pytz.timezone(TIMEZONE)))
     updated_date = Column(DateTime(timezone=True), default=datetime.datetime.now(tz=pytz.timezone(TIMEZONE)))

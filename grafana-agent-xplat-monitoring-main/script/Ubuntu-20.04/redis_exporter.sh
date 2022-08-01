@@ -5,7 +5,16 @@ version="${VERSION:-1.35.1}"
 arch="${ARCH:-linux-amd64}"
 bin_dir="${BIN_DIR:-/usr/bin}"
 
-source agent_config.sh
+# source agent_config.sh
+
+# ENTER HERE
+
+REDIS_IP="${REDIS_IP:- nguoi dung điền vào đây}"
+REDIS_PORT="${REDIS_PORT:-6379}"
+REDIS_PASSWORD="${REDIS_PASSWORD:-điền vào đây}"
+
+
+#####
 
 wget "https://github.com/oliver006/redis_exporter/releases/download/v$version/redis_exporter-v$version.$arch.tar.gz" \
     -O /opt/redis_exporter.tar.gz
@@ -36,8 +45,8 @@ ExecStart=/usr/bin/redis_exporter
     --log-format=txt 
     --namespace=redis 
     --web.listen-address=:9121 
-    --redis.addr="redis://$ip:6379" 
-    --redis.password="$database_password"
+    --redis.addr="redis://$REDIS_IP:$REDIS_PORT" 
+    --redis.password="$REDIS_PASSWORD"
     --web.telemetry-path=/metrics
 [Install]
 WantedBy=multi-user.target    

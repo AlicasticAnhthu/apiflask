@@ -22,7 +22,7 @@ DATA = {
     ]
 }
 #create database object
-app.config ['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///thu.db'
+app.config ['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///apiflask_learning.db'
 app.config ['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #sqlarchemy mapper
 db = SQLAlchemy(app)

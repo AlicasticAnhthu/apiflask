@@ -2,8 +2,6 @@ server:
    log_level: info
    http_listen_port: 9100
 
-{{your_name}}
-
 metrics:
   global:
     scrape_interval: 1m

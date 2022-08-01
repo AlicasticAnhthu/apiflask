@@ -43,6 +43,7 @@ metrics:
       scrape_configs:
         - job_name: agent
           static_configs:
+            - targets: VAR_TARTGET_URL
       remote_write:
         - url: $url
           basic_auth:

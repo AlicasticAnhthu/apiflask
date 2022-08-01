@@ -87,6 +87,9 @@ class CoreManager:
         secret = "thu_pyhohohihihihehe"  # such as generate from os.urandom(length)
         current_time = str(int(time.time()))
         token = hmac.new(secret.encode('utf-8'), digestmod=hashlib.sha256).hexdigest()
+
+        ### get_file?id=exporter_id&token=token
+
         return "get_file?file=%(filename)s&time=%(current_time)s&token=%(token)s" % {
             "filename": "thu.db",
             "current_time": current_time,
