@@ -84,15 +84,20 @@ class TemplateManager:
 class CoreManager:
 
     def render_link(self):
-        secret = "thu_pyhohohihihihehe"  # such as generate from os.urandom(length)
-        current_time = str(int(time.time()))
+        select_exporter_id = """SELECT exporter_id from token_managers"""
+        cursor.execute(select_exporter_id)
+        exporter_id = cursor.fetchone()
+        
+        select_secret_query = """SELECT secret from token_managers WHERE exporter_id = %s""" 
+        #hỏi lại anh huân vì muốn select được exporter_id accordingly với id đã chọn ở trên
+        cursor.execute(select_secret_query, (exporter_id))
+        secret = cursor.fetchone() # such as generate from os.urandom(length)
         token = hmac.new(secret.encode('utf-8'), digestmod=hashlib.sha256).hexdigest()
 
         ### get_file?id=exporter_id&token=token
-
-        return "get_file?file=%(filename)s&time=%(current_time)s&token=%(token)s" % {
+        return "get_file?file=%(filename)s&id=%(exporter_id)s&token=%(token)s" % {
             "filename": "thu.db",
-            "current_time": current_time,
+            "cexporter_id": exporter_id,
             "token": token
         }
 
