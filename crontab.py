@@ -3,7 +3,7 @@ import time
 
 con, cur = get_db()
 print(f"Start: {con, cur}")
-def main():
+def crontab():
     print("Start")
     while True:
         update_status_query = """UPDATE token_managers SET token_status = 1 WHERE created_date < NOW() - INTERVAL '5 minutes'"""
@@ -15,4 +15,4 @@ def main():
         print("Update status success")
 
 if __name__ == '__main__':
-    main()
+    crontab()

@@ -1,4 +1,13 @@
 #!/bin/bash
+
+#############################################################
+############ Fill in haproxy_agent configuration ############
+#############################################################
+username="${USERNAME:-điền user vào đây}"
+password="${PASSWORD:-điền pass vào đây}"
+uri="${URI:-điền uri vào đây}" # ví dụ http://haproxy.example.com:8404/stats thì điền haproxy.example.com:8404/stats
+
+
 # Install haproxy_exporter
 version="${VERSION:-0.13.0}"
 arch="${ARCH:-linux-amd64}"
