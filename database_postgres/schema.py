@@ -3,12 +3,11 @@ import pytz
 import psycopg2
 from jinja2 import Environment, PackageLoader, select_autoescape
 from config import get_db
-
 connection, cur = get_db()
 
 TIMEZONE = 'Asia/Bangkok'
 
-from sqlalchemy import create_engine, Column, Integer, String, DateTime, ForeignKey, Table, sql, text
+from sqlalchemy import create_engine, Column, Integer, String, DateTime, ForeignKey, Table, sql, text, TIMESTAMP
 engine = create_engine('postgresql://postgres:o48wktKBegNqQ7rI@172.16.18.47:5432/thu_py')
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
@@ -24,8 +23,8 @@ class TokenManager(Base):
     local_path = Column(String(100), nullable=False)
     exporter_id = Column(Integer(), ForeignKey('exporters.id'), nullable=False)
     token_status = Column(Integer(), unique=False, default=False )
-    created_date = Column(DateTime(timezone=True), server_default=text("CURRENT_TIMESTAMP"))
-    updated_date = Column(DateTime(timezone=True), server_default =sql.func.now(),onupdate=sql.func.current_timestamp())
+    created_date = Column(TIMESTAMP(timezone=True), server_default=text("CURRENT_TIMESTAMP"))
+    updated_date = Column(TIMESTAMP(timezone=True), server_default =sql.func.now(),onupdate=sql.func.current_timestamp())
 
 class ExporterManager(Base):
     __tablename__ = 'exporters'
@@ -35,7 +34,7 @@ class ExporterManager(Base):
     secret = Column(String(100), nullable=False)
     target_url = Column(String(100), nullable=False)
     enable = Column(Integer(), default=0)
-    created_date = Column(DateTime(timezone=True), server_default=text("CURRENT_TIMESTAMP"))
+    created_date = Column(TIMESTAMP(timezone=True), server_default=text("CURRENT_TIMESTAMP"))
 
     def __repr__(self):
         return f"{self.id} - {self.name} - {self.secret} - {self.target_url} - {self.enable} - {self.created_date}"

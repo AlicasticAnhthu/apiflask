@@ -96,12 +96,10 @@ class CoreManager:
         select_exporter_id = """SELECT id from exporters"""
         cursor.execute(select_exporter_id)
         exporter_id = cursor.fetchone()
-        print(exporter_id[0])
 
         select_secret_query = """SELECT secret from exporters WHERE id = %s""" 
         cursor.execute(select_secret_query, (str(exporter_id[0])))
-        secret = cursor.fetchone() 
-        print(secret)# select accordingly with exporter_id
+        secret = cursor.fetchone() # select accordingly with exporter_id
         token = hmac.new(secret[0].encode('utf-8'), digestmod=hashlib.sha256).hexdigest()
 
         ### get_file?id=exporter_id&token=token
@@ -117,36 +115,48 @@ class ExporterList(Resource):
         select_exporter = """SELECT id, name , secret , target_url , enable, created_date from exporters"""
         cursor.execute(select_exporter)
         all_exporters = cursor.fetchall()
-        json_exporters = json.dumps(all_exporters, default = list)
+        exporters_list = []
+        for exporter in all_exporters:
+            exporter_detail= {
+            "id": exporter[0], 
+            "name": exporter[1], 
+            "secret": exporter[2],
+            "target_url": exporter[3],
+            "enable": exporter[4],
+            "created_date": exporter[5]
+            }
+            exporters_list.append(exporter_detail)
+        json_exporters = json.dumps(exporters_list, default = str)
         exporters = json.loads(json_exporters)
-        # exporters_list = []
-        # for exporter in exporters:
-        #     exporter_detail= {
-        #     "id": exporter.id, 
-        #     "name": exporter.name, 
-        #     "secret": exporter.secret,
-        #     "target_url": exporter.target_url,
-        #     "enable": exporter.enable,
-        #     }
-        #     exporters_list.append(exporter_detail)
-        #     print(exporters_list)
         return {"Employees":exporters},200
 
 class Exporter_ID(Resource):
-    def get(self, exporter_id):
-        select_exporter = """SELECT id, name , secret , target_url , enable, created_date from exporters WHERE id = %s"""
-        cursor.execute(select_exporter, (exporter_id))
-        exporter = cursor.fetchone()
-        json_exporter = json.dumps(exporter, default = list)
+    def get(self, id: int):
+        select_exporter =  """SELECT id, name , secret , target_url , enable, created_date from exporters WHERE id = %s"""
+        cursor.execute(select_exporter, (str(id)))
+        exporter_detail = cursor.fetchone()
+        exporter_detail_list = []
+        exporter_detail_loop= {
+            "id": exporter_detail[0], 
+            "name": exporter_detail[1],
+            "secret": exporter_detail[2],
+            "target_url": exporter_detail[3],
+            "enable": exporter_detail[4],
+            "created_date": exporter_detail[5]
+        }
+        exporter_detail_list.append(exporter_detail_loop)
+        print(exporter_detail_list)
+        json_exporter = json.dumps(exporter_detail_list, default = str)
         exporter = json.loads(json_exporter)
         return {"Employee":exporter},200
 
 api.add_resource(ExporterList, '/')
-api.add_resource(Exporter_ID, '/Detail/<int:exporter_id>')
+api.add_resource(Exporter_ID, '/Detail/<int:id>')
+
 
 if __name__ == '__main__':
-    # exporter_id, token, local_path = CoreManager().render_link()
-    # TokenManager().insert_token(local_path, token, exporter_id)
+    exporter_id, token, local_path = CoreManager().render_link()
+    TokenManager().insert_token(local_path, token, exporter_id)
     app.run(debug=True, port=5002)
 
 

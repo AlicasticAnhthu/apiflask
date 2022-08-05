@@ -6,10 +6,10 @@ print(f"Start: {con, cur}")
 def crontab():
     print("Start")
     while True:
-        update_status_query = """UPDATE token_managers SET token_status = 1 WHERE created_date < NOW() - INTERVAL '5 minutes'"""
-        
+        update_status_query = """UPDATE token_managers SET token_status = 1 WHERE created_date < NOW() - INTERVAL '5 minutes' and token_status = 0"""
         cur.execute(update_status_query)
-        
+        update_update_date_query="""UPDATE token_managers SET updated_date = NOW() WHERE token_status = 0"""
+        cur.execute(update_update_date_query)
         con.commit()
         time.sleep(10)
         print("Update status success")
